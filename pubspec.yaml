@@ -39,3 +39,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # 🎯 تصاویر کے درست پاتھ (بغیر شروعاتی سلیش کے)
+  assets:
+    - assets/images/background.jpeg
+    - assets/images/my_photo.jpeg

@@ -1,0 +1,121 @@
+import 'package:flutter/material.dart';
+import 'package:my_first_app/admin/home_page.dart';
+
+import 'package:my_first_app/customer/header/customer_header_ui.dart';
+import 'package:my_first_app/customer/form/customer_form_ui.dart';
+import 'package:my_first_app/customer/form/customer_form_logic.dart';
+import 'package:my_first_app/customer/contact/customer_contact_ui.dart';
+import 'package:my_first_app/customer/contact/customer_contact_logic.dart';
+import 'package:my_first_app/customer/footer/customer_footer_ui.dart';
+import 'package:my_first_app/customer/footer/customer_footer_logic.dart';
+
+class CustomerLoginPage extends StatefulWidget {
+  const CustomerLoginPage({super.key});
+
+  @override
+  State<CustomerLoginPage> createState() => _CustomerLoginPageState();
+}
+
+class _CustomerLoginPageState extends State<CustomerLoginPage> {
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _isPasswordVisible = false;
+  bool _rememberMe = false;
+
+  final CustomerFormLogic _formLogic = CustomerFormLogic();
+  final CustomerContactLogic _contactLogic = CustomerContactLogic();
+  final CustomerFooterLogic _footerLogic = CustomerFooterLogic();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      body: Stack(
+        children: [
+          // 🖼️ 1. ایچ ڈی بیک گراؤنڈ
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/background.jpeg',
+              fit: BoxFit.cover,
+              alignment: const Alignment(0.0, -0.65),
+            ),
+          ),
+
+          // 📱 2. مین فارم اور لنکس
+          SafeArea(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const CustomerHeaderUi(),
+                    const SizedBox(height: 10),
+                    CustomerFormUi(
+                      phoneController: _phoneController,
+                      passwordController: _passwordController,
+                      isPasswordVisible: _isPasswordVisible,
+                      rememberMe: _rememberMe,
+                      onTogglePasswordVisibility: () => setState(() => _isPasswordVisible = !_isPasswordVisible),
+                      onRememberMeChanged: (bool? val) => setState(() => _rememberMe = val ?? false),
+                      onFingerprintTap: () => _formLogic.handleFingerprintAuthentication(),
+                      // 🎯 بغیر ایکسٹرا پیرامیٹرز کے بالکل درست کال بیک
+                      onLoginPressed: () => _formLogic.handleLoginSubmission(
+                        context,
+                        _phoneController,
+                        _passwordController,
+                      ),
+                    ),
+                    CustomerContactUi(
+                      onCallPressed: () => _contactLogic.makePhoneCall(),
+                      onWhatsAppPressed: () => _contactLogic.openWhatsApp(),
+                    ),
+                    CustomerFooterUi(
+                      onSignUpPressed: () => _footerLogic.handleSignUpNavigation(context),
+                      onCalculatorPressed: () => _footerLogic.handleCalculatorNavigation(context),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          // 🤫 3. ٹاپ رائٹ کارنر پر 3-Dots کا نیویگیشن بٹن
+          SafeArea(
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8.0, right: 8.0),
+                child: PopupMenuButton<String>(
+                  icon: const Icon(Icons.more_vert, color: Colors.white),
+                  onSelected: (value) {
+                    if (value == 'admin_home') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const HomePage()),
+                      );
+                    }
+                  },
+                  itemBuilder: (BuildContext context) => [
+                    const PopupMenuItem<String>(
+                      value: 'admin_home',
+                      child: Row(
+                        children: [
+                          Icon(Icons.dashboard, color: Colors.red),
+                          SizedBox(width: 8),
+                          Text('ایڈمن ہوم پیج (ٹیسٹنگ)'),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
