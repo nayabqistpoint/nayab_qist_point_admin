@@ -21,6 +21,8 @@ class _DatabasePageState extends State<DatabasePage> {
     'bankBox': {'title': 'بینک باکس', 'color': Colors.amber},
     'financialSummaryBox': {'title': 'نفع نقصان باکس', 'color': Colors.indigo},
     'summaryBox': {'title': 'سمری باکس (نیا)', 'color': Colors.deepPurple},
+    'usersBox': {'title': 'یوزرز باکس', 'color': Colors.brown},
+    'outboxBox': {'title': 'آؤٹ باکس', 'color': Colors.blueGrey},
   };
 
   void _checkAndCleanupBankBox(Box box) {

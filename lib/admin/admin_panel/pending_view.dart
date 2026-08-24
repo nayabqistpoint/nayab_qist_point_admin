@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:my_first_app/admin/admin_panel/admin_panel_controller.dart';
 import 'package:my_first_app/admin/admin_panel/request_card_item.dart';
 
@@ -15,32 +16,57 @@ class PendingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 🎯 packageBox کو لائیو لسن کریں تاکہ نئی/اوور رائٹ شدہ پینڈنگ درخواست فوراً ظاہر ہو
-    return ValueListenableBuilder<Box?>(
-      valueListenable: Hive.isBoxOpen('packageBox')
-          ? Hive.box('packageBox').listenable()
-          : ValueNotifier<Box?>(null),
-      builder: (context, Box? box, _) {
+    return StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance.collection('signupRequests').snapshots(),
+      builder: (context, snapshot) {
         List<Map<String, dynamic>> pendingList = [];
 
-        if (box != null && box.isOpen) {
+        if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
+          for (var doc in snapshot.data!.docs) {
+            final Map<String, dynamic> firestoreData = Map<String, dynamic>.from(doc.data() as Map);
+            
+            final Map<String, dynamic> customerData = Map<String, dynamic>.from(firestoreData['customerData'] ?? {});
+            final Map<String, dynamic> packageData = Map<String, dynamic>.from(firestoreData['packageData'] ?? {});
+            final Map<String, dynamic> guarantorData = Map<String, dynamic>.from(firestoreData['guarantorData'] ?? {});
+
+            final String phone = firestoreData['phone'] ?? customerData['customerPhone'] ?? doc.id;
+            
+            // اسٹیٹس کو ہر جگہ سے تسلی کے ساتھ پڑھنا
+            final String rawStatus = (firestoreData['status'] ?? packageData['status'] ?? customerData['status'] ?? 'Pending').toString().trim().toLowerCase();
+
+            // پرچیز کی درست فلٹرنگ
+            bool isPurchase = (packageData['isPurchaseRequested'] == true) || 
+                               (firestoreData['isPurchaseRequested'] == true) || 
+                               (packageData.containsKey('packageName') && packageData['packageName'] != null);
+
+            // صرف 'pending' اسٹیٹس والے کارڈز ہی یہاں دکھائیں
+            if (rawStatus == 'pending') {
+              pendingList.add({
+                'customerPhone': phone,
+                'phone': phone,
+                ...customerData,
+                ...packageData,
+                'customerData': customerData,
+                'packageData': packageData,
+                'guarantorData': guarantorData,
+                'isPurchaseRequested': isPurchase,
+                'status': 'Pending',
+              });
+            }
+          }
+        } 
+
+        if (pendingList.isEmpty && Hive.isBoxOpen('packageBox')) {
+          final box = Hive.box('packageBox');
           for (var item in box.values) {
             if (item is Map) {
               final Map<String, dynamic> data = Map<String, dynamic>.from(item);
               final String status = (data['status'] ?? 'Pending').toString().trim().toLowerCase();
-
-              // 🎯 صرف وہی اینٹریز اٹھائیں جو 'pending' ہیں (کیپٹل/اسمال دونوں ہینڈل ہیں)
               if (status == 'pending') {
                 pendingList.add(data);
               }
             }
           }
-        } else {
-          // بیک اپ کے طور پر کنٹرولر سے فلٹر کریں
-          pendingList = controller.requests.where((req) {
-            final String status = (req['status'] ?? 'pending').toString().trim().toLowerCase();
-            return status == 'pending';
-          }).toList();
         }
 
         if (pendingList.isEmpty) {

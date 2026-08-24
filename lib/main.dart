@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,7 +12,21 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   try {
-    await Firebase.initializeApp();
+    if (kIsWeb) {
+      await Firebase.initializeApp(
+        options: const FirebaseOptions(
+          apiKey: "AIzaSyDuo41m3PSRaj0xk4RSuidvjpChTjoM7Qw",
+          authDomain: "nayab-qist-point.firebaseapp.com",
+          projectId: "nayab-qist-point",
+          storageBucket: "nayab-qist-point.firebasestorage.app",
+          messagingSenderId: "559470553711",
+          appId: "1:559470553711:web:1434ea9e05cc073c633b9a",
+          measurementId: "G-33TSZN62T6",
+        ),
+      );
+    } else {
+      await Firebase.initializeApp();
+    }
   } catch (e) {
     debugPrint('Firebase initialization skipped or failed: $e');
   }
@@ -27,6 +42,8 @@ void main() async {
   await Hive.openBox('bankBox');
   await Hive.openBox('financialSummaryBox');
   await Hive.openBox('summaryBox');
+  await Hive.openBox('usersBox');
+  await Hive.openBox('outboxBox');
 
   runApp(const MyApp());
 }
