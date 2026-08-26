@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/admin/admin_panel/admin_panel_controller.dart';
-import 'package:my_first_app/admin/admin_panel/approved_view.dart';
-import 'package:my_first_app/admin/admin_panel/pending_view.dart';
-import 'package:my_first_app/admin/admin_panel/completed_view.dart'; 
-import 'package:my_first_app/admin/admin_panel/pending/pending_approvals_drawer.dart'; 
-import 'package:my_first_app/admin/admin_panel/pending/pending_approvals_controller.dart';
-import 'package:my_first_app/admin/admin_panel/admin_top_ui.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/admin_panel_controller.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/approved_view.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/pending_view.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/completed_view.dart'; 
+import 'package:nayab_qist_point_admin/admin/admin_panel/pending/pending_approvals_drawer.dart'; 
+// 🎯 یہاں پاتھ مکمل کر دیا گیا ہے:
+import 'package:nayab_qist_point_admin/admin/admin_panel/pending/pending_approvals_controller.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/admin_top_ui.dart';
 
 class AdminPanelPage extends StatefulWidget {
   const AdminPanelPage({super.key});

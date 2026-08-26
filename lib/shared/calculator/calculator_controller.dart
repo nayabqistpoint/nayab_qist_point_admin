@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/shared/calculator/calculator_config.dart';
+import 'package:nayab_qist_point_admin/shared/calculator/calculator_config.dart';
 
 class CalculaterController extends ChangeNotifier {
   double _totalAmount = 0.0;

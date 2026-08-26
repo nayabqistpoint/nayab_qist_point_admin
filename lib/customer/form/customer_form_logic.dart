@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:my_first_app/shared/customer_ledger_page.dart';
+import 'package:nayab_qist_point_admin/shared/customer_ledger_page.dart';
 
 class CustomerFormLogic {
   // 🎯 Lazy Getter: جب بٹن دبائیں گے صرف تب فائر بیس کال ہوگا

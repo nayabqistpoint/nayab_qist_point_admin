@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/shared/imei_details_dialog.dart';
-import 'package:my_first_app/shared/installment_plan_dialog.dart';
+import 'package:nayab_qist_point_admin/shared/imei_details_dialog.dart';
+import 'package:nayab_qist_point_admin/shared/installment_plan_dialog.dart';
 
 class RequestCardHelper {
   // 🎯 1. کسٹمر ہیڈر (نام، ولدیت، قوم)

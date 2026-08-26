@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/shared/calculator/calculator_controller.dart'; 
-import 'package:my_first_app/shared/calculator/calculator_config.dart';
+import 'package:nayab_qist_point_admin/shared/calculator/calculator_controller.dart'; 
+import 'package:nayab_qist_point_admin/shared/calculator/calculator_config.dart';
 
 class CalculaterHeader extends StatefulWidget {
   final Function(Map<String, dynamic>)? onDataChanged;

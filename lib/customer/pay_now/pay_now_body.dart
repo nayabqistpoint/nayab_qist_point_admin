@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:record/record.dart';
-import 'package:my_first_app/customer/pay_now/pay_now_controller.dart';
+import 'package:nayab_qist_point_admin/customer/pay_now/pay_now_controller.dart';
 
 class PayNowBody extends StatefulWidget {
   const PayNowBody({super.key});

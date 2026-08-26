@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/admin/home_page/views/item_controller.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/views/item_controller.dart';
 
 class ItemsPage extends StatelessWidget {
   const ItemsPage({super.key});

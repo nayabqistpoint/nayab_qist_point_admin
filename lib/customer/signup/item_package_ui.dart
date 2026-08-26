@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:my_first_app/shared/installment_calculator_page.dart';
+import 'package:nayab_qist_point_admin/shared/installment_calculator_page.dart';
 import 'package:record/record.dart'; // اصلی آڈیو ریکارڈنگ پیکیج
 import 'package:path_provider/path_provider.dart'; // ٹیمپریری پاتھ کے لیے
-import 'package:my_first_app/customer/signup/item_package_logic.dart';
+import 'package:nayab_qist_point_admin/customer/signup/item_package_logic.dart';
 
 // ری یوزیبل IMEI ڈائیلاگ کی امپورٹ
-import 'package:my_first_app/shared/imei_details_dialog.dart';
+import 'package:nayab_qist_point_admin/shared/imei_details_dialog.dart';
 
 class ItemPackageUI extends StatefulWidget {
   const ItemPackageUI({super.key});

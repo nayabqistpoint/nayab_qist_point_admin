@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/admin_approval_service.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/admin_approval_service.dart';
 
 class CardActionButtons extends StatelessWidget {
   final Map<String, dynamic> requestData;

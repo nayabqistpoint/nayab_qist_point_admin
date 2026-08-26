@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:my_first_app/admin/admin_panel/pending/pending_approvals_controller.dart';
+// 🎯 پاتھ مکمل کر دیا گیا ہے:
+import 'package:nayab_qist_point_admin/admin/admin_panel/pending/pending_approvals_controller.dart';
 
 class PendingApprovalsDrawer extends StatefulWidget {
   const PendingApprovalsDrawer({super.key});

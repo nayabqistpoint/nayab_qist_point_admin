@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/admin/add_party_dialog.dart';
-import 'package:my_first_app/admin/home_page/views/customers_widgets/customer_row_ui.dart';
-import 'package:my_first_app/admin/home_page/views/customers_widgets/customer_controller.dart';
+import 'package:nayab_qist_point_admin/admin/add_party_dialog.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/views/customers_widgets/customer_row_ui.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/views/customers_widgets/customer_controller.dart';
 
 class CustomersListView extends StatefulWidget {
   const CustomersListView({super.key});

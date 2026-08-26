@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/shared/customer_ledger/customer_ledger_controller.dart';
-import 'package:my_first_app/shared/customer_ledger/top.dart';
-import 'package:my_first_app/shared/customer_ledger/middle.dart';
-import 'package:my_first_app/shared/customer_ledger/bottom.dart';
+import 'package:nayab_qist_point_admin/shared/customer_ledger/customer_ledger_controller.dart';
+import 'package:nayab_qist_point_admin/shared/customer_ledger/top.dart';
+import 'package:nayab_qist_point_admin/shared/customer_ledger/middle.dart';
+import 'package:nayab_qist_point_admin/shared/customer_ledger/bottom.dart';
 
 class CustomerLedgerPage extends StatefulWidget {
   final dynamic customer;

@@ -3,14 +3,14 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // 🎯 پرچیز پیج کا امپورٹ
-import 'package:my_first_app/admin/home_page/transaction_forms/purchase_page.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/purchase_page.dart';
 
-import 'package:my_first_app/admin/admin_panel/widgets/card_action_buttons.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/customer_info_widget.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/guarantor_info_widget.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/imei_controller_widget.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/legal_docs_ui.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/request_card_helper.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/card_action_buttons.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/customer_info_widget.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/guarantor_info_widget.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/imei_controller_widget.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/legal_docs_ui.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/request_card_helper.dart';
 
 class RequestCardItem extends StatefulWidget {
   final Map<String, dynamic>? requestData;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; // پرووائیڈر کو امپورٹ کریں
-import 'package:my_first_app/shared/calculator/calculator_controller.dart'; // کنٹرولر کو امپورٹ کریں
-import 'package:my_first_app/shared/calculator/calculator_header.dart';
-import 'package:my_first_app/shared/calculator/calculator_list.dart';
+import 'package:nayab_qist_point_admin/shared/calculator/calculator_controller.dart'; // کنٹرولر کو امپورٹ کریں
+import 'package:nayab_qist_point_admin/shared/calculator/calculator_header.dart';
+import 'package:nayab_qist_point_admin/shared/calculator/calculator_list.dart';
 
 class InstallmentCalculaterPage extends StatefulWidget {
   const InstallmentCalculaterPage({super.key});

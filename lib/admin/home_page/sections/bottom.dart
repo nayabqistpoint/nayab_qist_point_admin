@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 // یہ پاتھ درست ہے: ایک بار ../ سے sections سے باہر، اور دوسرا ../ سے home_page سے باہر lib فولڈر تک
-import 'package:my_first_app/shared/installment_calculator_page.dart';
+import 'package:nayab_qist_point_admin/shared/installment_calculator_page.dart';
 // خریداری فارم کا نیا پاتھ
-import 'package:my_first_app/admin/home_page/transaction_forms/purchase_page.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/purchase_page.dart';
 // آپ کی نئی بنائی گئی ڈیٹا بیس فائل کا درست پاتھ
-import 'package:my_first_app/shared/database_page.dart';
+import 'package:nayab_qist_point_admin/shared/database_page.dart';
 
 class BottomSection extends StatelessWidget {
   const BottomSection({super.key});

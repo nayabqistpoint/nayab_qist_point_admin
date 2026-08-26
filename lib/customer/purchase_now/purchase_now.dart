@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/customer/signup/item_package_ui.dart';
-import 'package:my_first_app/customer/purchase_now/purchase_now_controller.dart';
+import 'package:nayab_qist_point_admin/customer/signup/item_package_ui.dart';
+import 'package:nayab_qist_point_admin/customer/purchase_now/purchase_now_controller.dart';
 
 class PurchaseNow extends StatefulWidget {
   final String customerMobileNumber;

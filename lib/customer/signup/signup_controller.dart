@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:my_first_app/customer/signup/customer_info.dart';
-import 'package:my_first_app/customer/signup/guarantor_info.dart';
-import 'package:my_first_app/customer/signup/item_package_ui.dart';
-import 'package:my_first_app/customer/signup/signup_requests_service.dart';
+import 'package:nayab_qist_point_admin/customer/signup/customer_info.dart';
+import 'package:nayab_qist_point_admin/customer/signup/guarantor_info.dart';
+import 'package:nayab_qist_point_admin/customer/signup/item_package_ui.dart';
+import 'package:nayab_qist_point_admin/customer/signup/signup_requests_service.dart';
 
 class SignUpController extends ChangeNotifier {
   final GlobalKey<CustomerInfoWidgetState> customerKey = GlobalKey<CustomerInfoWidgetState>();

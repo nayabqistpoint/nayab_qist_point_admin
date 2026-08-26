@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/shared/installment_plan_dialog.dart';
-import 'package:my_first_app/admin/home_page/views/customers_widgets/balance_helper.dart';
+import 'package:nayab_qist_point_admin/shared/installment_plan_dialog.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/views/customers_widgets/balance_helper.dart';
 
 class LedgerTopHelper {
   static String getHeaderTitle({

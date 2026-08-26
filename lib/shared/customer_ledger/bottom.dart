@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/shared/customer_ledger/customer_ledger_controller.dart';
-import 'package:my_first_app/shared/customer_ledger/ledger_bottom_helper.dart';
+import 'package:nayab_qist_point_admin/shared/customer_ledger/customer_ledger_controller.dart';
+import 'package:nayab_qist_point_admin/shared/customer_ledger/ledger_bottom_helper.dart';
 
 class LedgerBottomWidget extends StatelessWidget {
   final CustomerLedgerController controller;

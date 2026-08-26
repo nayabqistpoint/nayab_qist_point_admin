@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/shared/installment_calculator_page.dart';
-import 'package:my_first_app/customer/signup_page.dart';
+import 'package:nayab_qist_point_admin/shared/installment_calculator_page.dart';
+import 'package:nayab_qist_point_admin/customer/signup_page.dart';
 
 class CustomerFooterLogic {
   // 🎯 نیا اکاؤنٹ (سائن اپ) پیج پر جانے کی لاجک

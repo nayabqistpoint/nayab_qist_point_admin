@@ -1,17 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:my_first_app/admin/dashboard_page.dart';
-import 'package:my_first_app/admin/admin_panel_page.dart';
+import 'package:nayab_qist_point_admin/admin/dashboard_page.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel_page.dart';
 
 // سیکشنز اور ویوز کی امپورٹس
-import 'package:my_first_app/admin/home_page/sections/top.dart';
-import 'package:my_first_app/admin/home_page/sections/middle.dart';
-import 'package:my_first_app/admin/home_page/sections/bottom.dart';
-import 'package:my_first_app/admin/home_page/sections/sections_controller.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/sections/top.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/sections/middle.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/sections/bottom.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/sections/sections_controller.dart';
 
-import 'package:my_first_app/admin/home_page/views/customers_list.dart';
-import 'package:my_first_app/admin/home_page/views/items.dart';
-import 'package:my_first_app/admin/home_page/views/transactions.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/views/customers_list.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/views/items.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/views/transactions.dart';
 
 class AppScrollBehavior extends MaterialScrollBehavior {
   @override

@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-// ایڈمن اور کسٹمر دونوں پیجز کے امپورٹس
-// ignore: unused_import
-import 'package:my_first_app/admin/welcome/login_page.dart';
-import 'package:my_first_app/customer/customer_login_page.dart';
+// 🎯 صرف ایڈمن لاگ ان کا امپورٹ (ایڈمن ایپ کے اپنے پاتھ کے ساتھ)
+import 'package:nayab_qist_point_admin/admin/welcome/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +31,7 @@ void main() async {
 
   await Hive.initFlutter();
 
+  // 🎯 ایڈمن پورٹل کے تمام باکسز
   await Hive.openBox('customerBox');
   await Hive.openBox('guarantorBox');
   await Hive.openBox('packageBox');
@@ -45,17 +44,17 @@ void main() async {
   await Hive.openBox('usersBox');
   await Hive.openBox('outboxBox');
 
-  runApp(const MyApp());
+  runApp(const AdminApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class AdminApp extends StatelessWidget {
+  const AdminApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'نایاب قسط پوائنٹ',
+      title: 'نایاب قسط پوائنٹ - ایڈمن پورٹل',
       theme: ThemeData(
         primaryColor: Colors.red[800],
         colorScheme: ColorScheme.fromSeed(
@@ -65,12 +64,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
       ),
-
-      // 🎯 کسٹمر پیج کی UI بنانے کے لیے اسے آن رکھیں:
-      home: const CustomerLoginPage(),
-
-      // 🎯 جب ایڈمن پینل ٹیسٹ کرنا ہو تو اوپر والی کو کمینٹ کر کے نیچے والی آن کر لیں:
-      // home: const LoginPage(),
+      // ایڈمن پورٹل کا شروعاتی پیج
+      home: const LoginPage(),
     );
   }
 }

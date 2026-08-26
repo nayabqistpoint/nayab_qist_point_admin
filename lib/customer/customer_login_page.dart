@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/admin/home_page.dart';
+import 'package:nayab_qist_point_admin/admin/home_page.dart';
 
-import 'package:my_first_app/customer/header/customer_header_ui.dart';
-import 'package:my_first_app/customer/form/customer_form_ui.dart';
-import 'package:my_first_app/customer/form/customer_form_logic.dart';
-import 'package:my_first_app/customer/contact/customer_contact_ui.dart';
-import 'package:my_first_app/customer/contact/customer_contact_logic.dart';
-import 'package:my_first_app/customer/footer/customer_footer_ui.dart';
-import 'package:my_first_app/customer/footer/customer_footer_logic.dart';
+import 'package:nayab_qist_point_admin/customer/header/customer_header_ui.dart';
+import 'package:nayab_qist_point_admin/customer/form/customer_form_ui.dart';
+import 'package:nayab_qist_point_admin/customer/form/customer_form_logic.dart';
+import 'package:nayab_qist_point_admin/customer/contact/customer_contact_ui.dart';
+import 'package:nayab_qist_point_admin/customer/contact/customer_contact_logic.dart';
+import 'package:nayab_qist_point_admin/customer/footer/customer_footer_ui.dart';
+import 'package:nayab_qist_point_admin/customer/footer/customer_footer_logic.dart';
 
 class CustomerLoginPage extends StatefulWidget {
   const CustomerLoginPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/customer/pay_now/pay_now_widget.dart';
+import 'package:nayab_qist_point_admin/customer/pay_now/pay_now_widget.dart';
 
 /// 🎯 گلوبل فنکشن: پوری ایپ (اور RequestCardHelper) میں انسٹالمنٹ ڈائیلاگ اوپن کرنے کے لیے
 void showInstallmentPlanDialog(BuildContext context, String customerPhone, {bool isAdmin = false}) {

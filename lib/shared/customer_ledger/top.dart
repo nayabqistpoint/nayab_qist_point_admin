@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:my_first_app/shared/customer_ledger/customer_ledger_controller.dart';
-import 'package:my_first_app/shared/customer_ledger/ledger_top_helper.dart';
+import 'package:nayab_qist_point_admin/shared/customer_ledger/customer_ledger_controller.dart';
+import 'package:nayab_qist_point_admin/shared/customer_ledger/ledger_top_helper.dart';
 
 class LedgerTopWidget extends StatelessWidget {
   final CustomerLedgerController controller;

@@ -1,11 +1,11 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/legal_docs_controller.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/agreement_helper.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/guarantor_helper.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/declaration_helper.dart';
-import 'package:my_first_app/admin/admin_panel/widgets/invoice_helper.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/legal_docs_controller.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/agreement_helper.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/guarantor_helper.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/declaration_helper.dart';
+import 'package:nayab_qist_point_admin/admin/admin_panel/widgets/invoice_helper.dart';
 
 class LegalDocsUI extends StatefulWidget {
   final Map<String, dynamic> requestData;

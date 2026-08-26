@@ -1,5 +1,5 @@
-name: my_first_app
-description: "A new Flutter project."
+name: nayab_qist_point_admin
+description: "Nayab Qist Point Admin Portal"
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -40,7 +40,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # 🎯 تصاویر کے درست پاتھ (بغیر شروعاتی سلیش کے)
   assets:
     - assets/images/background.jpeg
     - assets/images/my_photo.jpeg

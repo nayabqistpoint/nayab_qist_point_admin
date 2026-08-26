@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/admin/home_page/transaction_forms/payment_in/payment_in_controller.dart';
-import 'package:my_first_app/admin/home_page/transaction_forms/common/discount_widget.dart';
-import 'package:my_first_app/admin/dashboard/widgets/payment_source_card.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/payment_in/payment_in_controller.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/common/discount_widget.dart';
+import 'package:nayab_qist_point_admin/admin/dashboard/widgets/payment_source_card.dart';
 
 class PaymentBody extends StatefulWidget {
   final PaymentInController controller;

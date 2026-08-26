@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'package:my_first_app/admin/home_page/sections/sections_controller.dart';
-import 'package:my_first_app/admin/dashboard/widgets/financial_controller.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/sections/sections_controller.dart';
+import 'package:nayab_qist_point_admin/admin/dashboard/widgets/financial_controller.dart';
 
 class ProfitLossWidget extends StatelessWidget {
   const ProfitLossWidget({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:my_first_app/shared/calculator/calculator_controller.dart';
+import 'package:nayab_qist_point_admin/shared/calculator/calculator_controller.dart';
 
 class CalculaterList extends StatelessWidget {
   final Function(Map<String, dynamic>)? onPackageSelected;

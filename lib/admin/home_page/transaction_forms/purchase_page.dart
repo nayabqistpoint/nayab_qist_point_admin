@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/admin/home_page/transaction_forms/purchase_page_controller.dart';
-import 'package:my_first_app/admin/home_page/transaction_forms/common/header_capsules.dart';
-import 'package:my_first_app/admin/home_page/transaction_forms/common/party_selector_widget.dart';
-import 'package:my_first_app/admin/home_page/transaction_forms/common/item_selector_row_widget.dart';
-import 'package:my_first_app/admin/home_page/transaction_forms/common/discount_widget.dart';
-import 'package:my_first_app/admin/home_page/transaction_forms/common/transaction_summary_widget.dart';
-import 'package:my_first_app/admin/dashboard/widgets/payment_source_card.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/purchase_page_controller.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/common/header_capsules.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/common/party_selector_widget.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/common/item_selector_row_widget.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/common/discount_widget.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/transaction_forms/common/transaction_summary_widget.dart';
+import 'package:nayab_qist_point_admin/admin/dashboard/widgets/payment_source_card.dart';
 
 class PurchasePage extends StatefulWidget {
   final String? applicantPhone;
