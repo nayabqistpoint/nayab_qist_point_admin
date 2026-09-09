@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:nayab_qist_point_admin/admin/home_page/views/item_controller.dart';
 import 'package:nayab_qist_point_admin/admin/home_page/sections/sections_controller.dart';
-import 'package:nayab_qist_point_admin/admin/welcome/login_page.dart';
+// 🎯 نیا امپورٹ جو لاگ ان کے ایرر کو ختم کرے گا
+import 'package:nayab_qist_point_admin/admin/welcome/admin_login_page.dart';
 import 'package:nayab_qist_point_admin/admin/home_page/views/customers_widgets/balance_helper.dart';
 
 class TopSection extends StatelessWidget {
@@ -71,7 +72,14 @@ class TopSection extends StatelessWidget {
                               PopupMenuButton<String>(
                                 icon: const Icon(Icons.more_vert, color: Colors.white),
                                 onSelected: (v) {
-                                  if (v == 'logout') Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginPage()));
+                                  // 🎯 نیا لاگ ان پیج نیویگیشن
+                                  if (v == 'logout') {
+                                    Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(builder: (_) => const AdminLoginPage()),
+                                      (route) => false,
+                                    );
+                                  }
                                 },
                                 itemBuilder: (_) => [
                                   const PopupMenuItem(

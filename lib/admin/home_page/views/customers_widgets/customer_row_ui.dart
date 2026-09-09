@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:nayab_qist_point_admin/admin/home_page/views/customers_widgets/balance_helper.dart';
-import 'package:nayab_qist_point_admin/shared/customer_ledger_page.dart';
+import 'package:nayab_qist_point_admin/admin/shared/customer_ledger_page.dart';
 
 class CustomerRowUI extends StatelessWidget {
   final String name;
