@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nayab_qist_point_admin/admin_home_page.dart'; // 👈 نیا ہوم پیج امپورٹ کر دیا گیا ہے
 
 class AdminLoginView extends StatefulWidget {
   const AdminLoginView({super.key});
@@ -11,14 +10,6 @@ class AdminLoginView extends StatefulWidget {
 class _AdminLoginViewState extends State<AdminLoginView> {
   // 🎯 بیک گراؤنڈ تھیم سوئچ کرنے کے لیے (1 سے 5)
   int selectedBgOption = 1;
-
-  // 🚀 اگلے پیج پر جانے کا لاجک
-  void _navigateToAdminHome() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const AdminHomePage()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +54,7 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // آن لائن سٹیٹس کیپسول (جیسا آپ نے کہا، اس کو نارمل رہنے دیا ہے)
+                    // آن لائن سٹیٹس کیپسول
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
                       decoration: BoxDecoration(
@@ -118,7 +109,7 @@ class _AdminLoginViewState extends State<AdminLoginView> {
               const Spacer(),
 
               // ===============================================================
-              // 2. درمیانی ورٹیکل کارڈ
+              // 2. درمیانی ورٹیکل کارڈ (بالکل وہی ڈیزائن)
               // ===============================================================
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -189,9 +180,11 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                       ),
                       const SizedBox(height: 36),
 
-                      // 🎯 فنگر پرنٹ بٹن (یہاں سے AdminHomePage پر نیویگیٹ ہوگا)
+                      // فنگر پرنٹ بٹن
                       InkWell(
-                        onTap: _navigateToAdminHome,
+                        onTap: () {
+                          // لاگ ان پروسیس
+                        },
                         borderRadius: BorderRadius.circular(50),
                         child: Container(
                           width: 80,
@@ -233,7 +226,7 @@ class _AdminLoginViewState extends State<AdminLoginView> {
               const Spacer(),
 
               // ===============================================================
-              // 3. نیلا / ڈارک فوٹر سیکشن
+              // 3. نیلا / ڈارک فوٹر سیکشن (ایڈمن کے کام کی معلومات)
               // ===============================================================
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0, left: 24.0, right: 24.0),
