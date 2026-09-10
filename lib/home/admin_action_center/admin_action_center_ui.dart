@@ -1,85 +1,74 @@
 import 'package:flutter/material.dart';
-import 'package:nayab_qist_point_admin/home/admin_action_center/admin_action_center_logic.dart';
 
-class AdminActionCenterUI extends StatelessWidget {
-  const AdminActionCenterUI({super.key});
+class AdminActionCenterUi extends StatelessWidget {
+  const AdminActionCenterUi({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final logic = AdminActionCenterLogic();
-
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white12),
+        color: Colors.white,
+        border: Border(top: BorderSide(color: Colors.grey.shade300, width: 1)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, -3),
+          ),
+        ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          _badgeItem(Icons.person_add_rounded, 'سائن اپ', 3, Colors.blue.shade700),
+          _badgeItem(Icons.vpn_key_rounded, 'PIN / لاگ ان', 1, Colors.orange.shade800),
+          _badgeItem(Icons.receipt_long_rounded, 'قسط کی ادائیگی', 5, Colors.teal),
+          _badgeItem(Icons.shopping_bag_rounded, 'نیا آرڈر', 2, Colors.purple),
+        ],
+      ),
+    );
+  }
+
+  Widget _badgeItem(IconData icon, String label, int count, Color color) {
+    return InkWell(
+      onTap: () {},
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Stack(
+            clipBehavior: Clip.none,
             children: [
-              const Text(
-                'ایکشن سینٹر (پینڈنگ درخواستیں)',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
-              ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.amber.shade900.withValues(alpha: 0.3),
-                  borderRadius: BorderRadius.circular(12),
+                  color: color.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Text(
-                  'توجہ طلب',
-                  style: TextStyle(color: Colors.amber, fontSize: 11, fontWeight: FontWeight.bold),
-                ),
+                child: Icon(icon, color: color, size: 20),
               ),
+              if (count > 0)
+                Positioned(
+                  top: -5,
+                  right: -5,
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
+                      color: Colors.red,
+                      shape: BoxShape.circle,
+                    ),
+                    constraints: const BoxConstraints(minWidth: 16, minHeight: 16),
+                    child: Text(
+                      '$count',
+                      style: const TextStyle(color: Colors.white, fontSize: 8, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
             ],
           ),
-          const SizedBox(height: 14),
-          GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 2.2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-            ),
-            itemCount: logic.requests.length,
-            itemBuilder: (context, index) {
-              final item = logic.requests[index];
-              return Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF0F172A),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.white10),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        item.title,
-                        style: const TextStyle(color: Colors.white70, fontSize: 12),
-                      ),
-                    ),
-                    CircleAvatar(
-                      radius: 12,
-                      backgroundColor: Colors.amber.shade600,
-                      child: Text(
-                        '${item.count}',
-                        style: const TextStyle(color: Colors.black, fontSize: 11, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
+          const SizedBox(height: 4),
+          Text(label, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: Colors.black87)),
         ],
       ),
     );

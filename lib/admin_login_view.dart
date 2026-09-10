@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nayab_qist_point_admin/admin_home_page.dart'; // پرانا پیج
+import 'package:nayab_qist_point_admin/home/home_page_ui.dart'; // نیا 6 فائلوں والا ڈیش بورڈ
 
 class AdminLoginView extends StatefulWidget {
   const AdminLoginView({super.key});
@@ -54,36 +56,47 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // آن لائن سٹیٹس کیپسول
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.08),
-                            blurRadius: 10,
-                            offset: const Offset(0, 3),
-                          )
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 9,
-                            height: 9,
-                            decoration: const BoxDecoration(
-                              color: Colors.green,
-                              shape: BoxShape.circle,
+                    // آن لائن سٹیٹس کیپسول (اب یہ بٹن کے طور پر HomePageUi پر لے جائے گا)
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePageUi(),
+                          ),
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.08),
+                              blurRadius: 10,
+                              offset: const Offset(0, 3),
+                            )
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 9,
+                              height: 9,
+                              decoration: const BoxDecoration(
+                                color: Colors.green,
+                                shape: BoxShape.circle,
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 8),
-                          const Text(
-                            'سسٹم آن لائن',
-                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black87),
-                          ),
-                        ],
+                            const SizedBox(width: 8),
+                            const Text(
+                              'سسٹم آن لائن',
+                              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black87),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
 
@@ -180,10 +193,15 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                       ),
                       const SizedBox(height: 36),
 
-                      // فنگر پرنٹ بٹن
+                      // فنگر پرنٹ بٹن (پرانے ہوم پیج AdminHomePage پر لے جائے گا)
                       InkWell(
                         onTap: () {
-                          // لاگ ان پروسیس
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AdminHomePage(),
+                            ),
+                          );
                         },
                         borderRadius: BorderRadius.circular(50),
                         child: Container(
