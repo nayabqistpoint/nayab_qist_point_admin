@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import '../views/customers_widgets/balance_helper.dart';
+import 'package:nayab_qist_point_admin/admin/home_page/views/customers_widgets/balance_helper.dart';
 
 class TopSectionHelper {
   // کیش / بینک بیلنس کا حساب

@@ -5,113 +5,143 @@ class BusinessSummaryUi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'مالیاتی خلاصہ (Business Summary)',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.black87),
+    final metrics = [
+      {'title': 'کل سرمایہ', 'amount': 'Rs. 25,00,000', 'icon': Icons.pie_chart_outline_rounded, 'color': Colors.purple},
+      {'title': 'سٹاک', 'amount': 'Rs. 8,40,000', 'icon': Icons.phone_android_rounded, 'color': Colors.teal},
+      {'title': 'منافع', 'amount': 'Rs. 1,45,000', 'icon': Icons.trending_up_rounded, 'color': Colors.green},
+      {'title': 'اخراجات', 'amount': 'Rs. 32,000', 'icon': Icons.receipt_long_rounded, 'color': Colors.orange.shade800},
+      {'title': 'آج کی وصولی', 'amount': 'Rs. 15,000', 'icon': Icons.today_rounded, 'color': Colors.blue.shade700},
+    ];
+
+    return Directionality(
+      textDirection: TextDirection.rtl, // 🎯 دائیں سے بائیں ترتیب (RTL)
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+        decoration: BoxDecoration(
+          color: const Color(0xFFF8FAFC),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: const Color(0xFFE2E8F0)),
+        ),
+        child: Column(
+          children: [
+            // 🎯 ہیڈنگ پٹی (بزنس سمری دائیں طرف، تفصیلی رپورٹ بائیں طرف)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: Row(
+                children: [
+                  Container(width: 4, height: 16, color: const Color(0xFF2563EB)),
+                  const SizedBox(width: 6),
+                  const Expanded(
+                    child: Text(
+                      'بزنس سمری',
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Color(0xFF0F172A)),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: const Row(
+                      children: [
+                        Text('تفصیلی رپورٹ', style: TextStyle(fontSize: 11, color: Color(0xFF2563EB), fontWeight: FontWeight.w600)),
+                        SizedBox(width: 3),
+                        Icon(Icons.arrow_back_ios_new_rounded, size: 10, color: Color(0xFF2563EB)),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              InkWell(
-                onTap: () {},
-                child: const Row(
-                  children: [
-                    Icon(Icons.arrow_back_ios_new_rounded, size: 10, color: Colors.grey),
-                    SizedBox(width: 2),
-                    Text('تفصیل رپورٹ', style: TextStyle(fontSize: 11, color: Colors.grey)),
-                  ],
+            ),
+            const SizedBox(height: 12),
+
+            // 🎯 ٹاپ 5 سلائیڈ ایبل کارڈز
+            SizedBox(
+              height: 80,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                physics: const BouncingScrollPhysics(),
+                itemCount: metrics.length,
+                itemBuilder: (context, index) {
+                  final item = metrics[index];
+                  return SizedBox(
+                    width: 145,
+                    child: _buildCard(
+                      title: item['title'] as String,
+                      amount: item['amount'] as String,
+                      icon: item['icon'] as IconData,
+                      color: item['color'] as Color,
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            // 🎯 باٹم 2 کارڈز (قابل وصول / قابل ادائیگی)
+            Row(
+              children: [
+                Expanded(child: _buildCard(title: 'قابل وصول', amount: 'Rs. 12,40,000', icon: Icons.arrow_downward_rounded, color: const Color(0xFF16A34A), isLargeAmount: true)),
+                const SizedBox(width: 8),
+                Expanded(child: _buildCard(title: 'قابل ادائیگی', amount: 'Rs. 45,000', icon: Icons.arrow_upward_rounded, color: const Color(0xFFDC2626), isLargeAmount: true)),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCard({
+    required String title,
+    required String amount,
+    required IconData icon,
+    required Color color,
+    bool isLargeAmount = false,
+  }) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 5,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Icon(icon, size: 14, color: isLargeAmount ? color.withValues(alpha: 0.85) : color),
+              const SizedBox(width: 4),
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 10, 
+                    color: isLargeAmount ? color.withValues(alpha: 0.85) : Colors.black54, 
+                    fontWeight: FontWeight.w500
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ],
           ),
-        ),
-        const SizedBox(height: 10),
-        SizedBox(
-          height: 75,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            children: [
-              _metricCard('کل سرمایہ کاری', 'Rs. 25,00,000', Icons.pie_chart_outline_rounded, Colors.purple),
-              _metricCard('موبائل سٹاک مالیات', 'Rs. 8,40,000', Icons.phone_android_rounded, Colors.teal),
-              _metricCard('ماہانہ اخراجات', 'Rs. 32,000', Icons.receipt_long_rounded, Colors.orange.shade800),
-              _metricCard('خالص منافع', 'Rs. 1,45,000', Icons.trending_up_rounded, Colors.green),
-            ],
-          ),
-        ),
-        const SizedBox(height: 12),
-        SizedBox(
-          height: 90,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            physics: const PageScrollPhysics(),
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            children: [
-              _summarySlideCard('کل وصولی (لینا ہے)', 'Rs. 12,40,000', Icons.arrow_downward_rounded, Colors.green),
-              _summarySlideCard('کل زاید / دینا (Red)', 'Rs. 45,000', Icons.arrow_upward_rounded, Colors.red),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _metricCard(String label, String amount, IconData icon, Color color) {
-    return Container(
-      width: 135,
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: const Color(0xFFF1F5F9),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              Icon(icon, size: 13, color: color),
-              const SizedBox(width: 4),
-              Expanded(
-                child: Text(label, style: const TextStyle(fontSize: 9, color: Colors.grey), maxLines: 1),
-              ),
-            ],
-          ),
           const SizedBox(height: 6),
-          Text(amount, style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: color)),
-        ],
-      ),
-    );
-  }
-
-  Widget _summarySlideCard(String title, String amount, IconData icon, Color color) {
-    return Container(
-      width: 170,
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: const Color(0xFFF1F5F9),
-        borderRadius: BorderRadius.circular(14),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              Icon(icon, size: 14, color: color),
-              const SizedBox(width: 4),
-              Text(title, style: TextStyle(fontSize: 10, color: color, fontWeight: FontWeight.w600)),
-            ],
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              amount,
+              style: TextStyle(fontSize: isLargeAmount ? 17 : 13, fontWeight: FontWeight.bold, color: color),
+            ),
           ),
-          const SizedBox(height: 6),
-          Text(amount, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: color)),
         ],
       ),
     );
