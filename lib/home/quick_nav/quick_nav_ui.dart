@@ -10,8 +10,8 @@ class QuickNavUi extends StatelessWidget {
       {'title': 'بینک کھاتے', 'icon': Icons.account_balance_rounded, 'color': Colors.indigo},
       {'title': 'اخراجات', 'icon': Icons.receipt_long_rounded, 'color': Colors.orange.shade800},
       {'title': 'منافع نقصان', 'icon': Icons.analytics_rounded, 'color': Colors.green},
-      {'title': 'گاہک لسٹ', 'icon': Icons.people_alt_rounded, 'color': Colors.blue},
-      {'title': 'سپلائر لسٹ', 'icon': Icons.local_shipping_rounded, 'color': Colors.purple},
+      {'title': 'قسط کیلکولیٹر', 'icon': Icons.calculate_rounded, 'color': Colors.blue}, // 🎯 کسٹمر لسٹ کی جگہ
+      {'title': 'لیگل کاغذات', 'icon': Icons.gavel_rounded, 'color': Colors.purple}, // 🎯 سپلائر لسٹ کی جگہ (عدالت/لیگل آئیکن)
       {'title': 'اقساط شیڈول', 'icon': Icons.calendar_month_rounded, 'color': Colors.redAccent},
     ];
 
@@ -48,9 +48,9 @@ class QuickNavUi extends StatelessWidget {
             ),
             const SizedBox(height: 10),
 
-            // 🎯 بڑے اور واضح آئیکونز کے ساتھ سلائیڈ ایبل لسٹ
+            // 🎯 آپ کا اصلی ہائٹ (90px) اور سائز
             SizedBox(
-              height: 90, // 🎯 آئیکون اور باؤکس بڑا کرنے کے لیے ہائٹ مناسب کر دی ہے
+              height: 90,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),
@@ -82,7 +82,7 @@ class QuickNavUi extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(14),
       child: Container(
-        width: 105, // 🎯 باؤکس کی چوڑائی بڑھا دی گئی ہے
+        width: 105, // 🎯 آپ کا اصلی سائز (105px)
         margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
@@ -99,14 +99,14 @@ class QuickNavUi extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // 🎯 بڑے سائز کا آئیکون اور خوبصورت بیک گراؤنڈ
+            // 🎯 آپ کے اوریجنل آئیکن کا سائز (24px) اور بیک گراؤنڈ
             Container(
               padding: const EdgeInsets.all(9),
               decoration: BoxDecoration(
                 color: color.withValues(alpha: 0.12),
                 shape: BoxShape.circle,
               ),
-              child: Icon(icon, size: 24, color: color), // 🎯 آئیکون سائز 24 کر دیا ہے (پہلے 18 تھا)
+              child: Icon(icon, size: 24, color: color),
             ),
             const SizedBox(height: 6),
             Text(

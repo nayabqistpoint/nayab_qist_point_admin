@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nayab_qist_point_admin/home/business_summary/receivable_payable_summary_ui.dart';
 
 class BusinessSummaryUi extends StatelessWidget {
   const BusinessSummaryUi({super.key});
@@ -14,7 +15,7 @@ class BusinessSummaryUi extends StatelessWidget {
     ];
 
     return Directionality(
-      textDirection: TextDirection.rtl, // 🎯 دائیں سے بائیں ترتیب (RTL)
+      textDirection: TextDirection.rtl,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
@@ -25,7 +26,7 @@ class BusinessSummaryUi extends StatelessWidget {
         ),
         child: Column(
           children: [
-            // 🎯 ہیڈنگ پٹی (بزنس سمری دائیں طرف، تفصیلی رپورٹ بائیں طرف)
+            // 🎯 ہیڈنگ پٹی
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4),
               child: Row(
@@ -54,9 +55,9 @@ class BusinessSummaryUi extends StatelessWidget {
             ),
             const SizedBox(height: 12),
 
-            // 🎯 ٹاپ 5 سلائیڈ ایبل کارڈز
+            // 🎯 ٹاپ 5 سلائیڈ ایبل کارڈز (بڑے اور خوبصورت آئیکنز کے ساتھ)
             SizedBox(
-              height: 80,
+              height: 82,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 physics: const BouncingScrollPhysics(),
@@ -77,30 +78,24 @@ class BusinessSummaryUi extends StatelessWidget {
             ),
             const SizedBox(height: 10),
 
-            // 🎯 باٹم 2 کارڈز (قابل وصول / قابل ادائیگی)
-            Row(
-              children: [
-                Expanded(child: _buildCard(title: 'قابل وصول', amount: 'Rs. 12,40,000', icon: Icons.arrow_downward_rounded, color: const Color(0xFF16A34A), isLargeAmount: true)),
-                const SizedBox(width: 8),
-                Expanded(child: _buildCard(title: 'قابل ادائیگی', amount: 'Rs. 45,000', icon: Icons.arrow_upward_rounded, color: const Color(0xFFDC2626), isLargeAmount: true)),
-              ],
-            ),
+            // 🎯 باٹم 2 کارڈز (قابلِ وصول / قابلِ ادائیگی)
+            const ReceivablePayableSummaryUi(),
           ],
         ),
       ),
     );
   }
 
+  // 🎯 بڑا اور نمایاں آئیکن والا کارڈ ہیلپر
   Widget _buildCard({
     required String title,
     required String amount,
     required IconData icon,
     required Color color,
-    bool isLargeAmount = false,
   }) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 3, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -118,15 +113,23 @@ class BusinessSummaryUi extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(icon, size: 14, color: isLargeAmount ? color.withValues(alpha: 0.85) : color),
-              const SizedBox(width: 4),
+              // 🎯 آئیکن کا سائز 20 کر دیا ہے اور ہلکا سا خوبصورت پس منظر دیا ہے
+              Container(
+                padding: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: color.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Icon(icon, size: 20, color: color), // 👈 بڑا اور واضح آئیکن (20px)
+              ),
+              const SizedBox(width: 6),
               Expanded(
                 child: Text(
                   title,
-                  style: TextStyle(
-                    fontSize: 10, 
-                    color: isLargeAmount ? color.withValues(alpha: 0.85) : Colors.black54, 
-                    fontWeight: FontWeight.w500
+                  style: const TextStyle(
+                    fontSize: 11, 
+                    color: Colors.black87, 
+                    fontWeight: FontWeight.w600,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -139,7 +142,11 @@ class BusinessSummaryUi extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               amount,
-              style: TextStyle(fontSize: isLargeAmount ? 17 : 13, fontWeight: FontWeight.bold, color: color),
+              style: TextStyle(
+                fontSize: 13.5, 
+                fontWeight: FontWeight.bold, 
+                color: color,
+              ),
             ),
           ),
         ],

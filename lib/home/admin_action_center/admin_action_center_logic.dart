@@ -1,15 +1,41 @@
-class ActionCenterItem {
-  final String title;
-  final int count;
+import 'package:flutter/material.dart';
 
-  ActionCenterItem(this.title, this.count);
-}
+// چاروں ماڈیولز کے امپورٹس
+import 'package:nayab_qist_point_admin/pending_requests/signup_requests/signup_requests.dart';
+import 'package:nayab_qist_point_admin/pending_requests/installment_payment_requests/installment_payment_requests.dart';
+import 'package:nayab_qist_point_admin/pending_requests/pin_login_requests/pin_login_requests.dart';
+import 'package:nayab_qist_point_admin/pending_requests/new_order_requests/new_order_requests.dart';
 
 class AdminActionCenterLogic {
-  final List<ActionCenterItem> requests = [
-    ActionCenterItem('نیا آرڈر', 3),
-    ActionCenterItem('قسط کی ادائیگی', 5),
-    ActionCenterItem('لاگ ان درخواستیں', 2),
-    ActionCenterItem('سائن اپ درخواستیں', 4),
-  ];
+  // 1. سائن اپ
+  static void openSignupRequests(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SignupRequests()),
+    );
+  }
+
+  // 2. قسط کی ادائیگی
+  static void openInstallmentPaymentRequests(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const InstallmentPaymentRequests()),
+    );
+  }
+
+  // 3. PIN / لاگ ان
+  static void openPinLoginRequests(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const PinLoginRequests()),
+    );
+  }
+
+  // 4. نیا آرڈر
+  static void openNewOrderRequests(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const NewOrderRequests()),
+    );
+  }
 }

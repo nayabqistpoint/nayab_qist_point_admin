@@ -18,18 +18,19 @@ class _CustomerActionBarUiState extends State<CustomerActionBarUi> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 4), // 🎯 vertical 6 -> 4
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8), // 🎯 vertical 10 -> 8
         decoration: BoxDecoration(
           color: const Color(0xFFF8FAFC),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: const Color(0xFFE2E8F0)),
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min, // 🎯 جگہ کے مطابق سائز
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildHeader(),
-            const SizedBox(height: 10),
+            const SizedBox(height: 6), // 🎯 10 -> 6
             Row(
               children: [
                 _buildAddCustomerButton(),
@@ -37,7 +38,7 @@ class _CustomerActionBarUiState extends State<CustomerActionBarUi> {
                 Expanded(child: _buildSearchBar()),
               ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 6), // 🎯 10 -> 6
             _buildFilterChips(),
           ],
         ),
@@ -48,7 +49,7 @@ class _CustomerActionBarUiState extends State<CustomerActionBarUi> {
   // 🎯 1. ہیڈنگ پٹی
   Widget _buildHeader() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Row(
         children: [
           Container(width: 4, height: 16, color: const Color(0xFF2563EB)),
@@ -66,7 +67,7 @@ class _CustomerActionBarUiState extends State<CustomerActionBarUi> {
     );
   }
 
-  // 🎯 2. نیا کسٹمر بٹن (#334155 میچنگ شیڈ)
+  // 🎯 2. نیا کسٹمر بٹن
   Widget _buildAddCustomerButton() {
     return ElevatedButton.icon(
       onPressed: () {},
@@ -79,8 +80,8 @@ class _CustomerActionBarUiState extends State<CustomerActionBarUi> {
         backgroundColor: const Color(0xFF334155),
         foregroundColor: Colors.white,
         elevation: 1.5,
-        minimumSize: const Size(0, 40),
-        padding: const EdgeInsets.symmetric(horizontal: 14),
+        minimumSize: const Size(0, 38), // 🎯 40 -> 38
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
     );
@@ -89,7 +90,7 @@ class _CustomerActionBarUiState extends State<CustomerActionBarUi> {
   // 🎯 3. سرچ بار اور سارٹ ڈراپ ڈاؤن
   Widget _buildSearchBar() {
     return Container(
-      height: 40,
+      height: 38, // 🎯 40 -> 38
       padding: const EdgeInsets.only(right: 10, left: 6),
       decoration: BoxDecoration(
         color: Colors.white,
