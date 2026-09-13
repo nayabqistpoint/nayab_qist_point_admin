@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nayab_qist_point_admin/admin_home_page.dart'; // پرانا پیج
-import 'package:nayab_qist_point_admin/home/home_page_ui.dart'; // نیا 6 فائلوں والا ڈیش بورڈ
+import 'package:nayab_qist_point_admin/customer_ledger_test_page.dart'; // 🎯 کسٹمر لیجر کا امپورٹ
+import 'package:nayab_qist_point_admin/home/home_page_ui.dart';
 
 class AdminLoginView extends StatefulWidget {
   const AdminLoginView({super.key});
@@ -10,13 +10,11 @@ class AdminLoginView extends StatefulWidget {
 }
 
 class _AdminLoginViewState extends State<AdminLoginView> {
-  // 🎯 بیک گراؤنڈ تھیم سوئچ کرنے کے لیے (1 سے 5)
   int selectedBgOption = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // اوپر تھیم بدلنے کی بار
       appBar: AppBar(
         title: const Text('بیک گراؤنڈ تھیم تبدیل کریں', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.black87,
@@ -48,15 +46,11 @@ class _AdminLoginViewState extends State<AdminLoginView> {
         child: SafeArea(
           child: Column(
             children: [
-              // ===============================================================
-              // 1. ٹاپ بار (سسٹم آن لائن + سیٹنگز)
-              // ===============================================================
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // آن لائن سٹیٹس کیپسول (اب یہ بٹن کے طور پر HomePageUi پر لے جائے گا)
                     InkWell(
                       onTap: () {
                         Navigator.push(
@@ -99,8 +93,6 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                         ),
                       ),
                     ),
-
-                    // سیٹنگز اور کوئیک ڈیش بورڈ آئیکنز
                     Row(
                       children: [
                         Container(
@@ -118,12 +110,7 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                   ],
                 ),
               ),
-
               const Spacer(),
-
-              // ===============================================================
-              // 2. درمیانی ورٹیکل کارڈ (بالکل وہی ڈیزائن)
-              // ===============================================================
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Container(
@@ -145,7 +132,6 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // لوگو
                       Container(
                         width: 75,
                         height: 75,
@@ -161,8 +147,6 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                         ),
                       ),
                       const SizedBox(height: 20),
-
-                      // بزنس نیم
                       const Text(
                         'نایاب قسط پوائنٹ',
                         textAlign: TextAlign.center,
@@ -173,8 +157,6 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                         ),
                       ),
                       const SizedBox(height: 8),
-
-                      // اونر نیم
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                         decoration: BoxDecoration(
@@ -193,13 +175,13 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                       ),
                       const SizedBox(height: 36),
 
-                      // فنگر پرنٹ بٹن (پرانے ہوم پیج AdminHomePage پر لے جائے گا)
+                      // 🎯 فنگر پرنٹ بٹن: اب سیدھا کسٹمر لیجر ٹیسٹ پیج کھولے گا
                       InkWell(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const AdminHomePage(),
+                              builder: (context) => const CustomerLedgerTestPage(),
                             ),
                           );
                         },
@@ -227,7 +209,6 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                         ),
                       ),
                       const SizedBox(height: 14),
-
                       Text(
                         'فنگر پرنٹ سے لاگ ان کریں',
                         style: TextStyle(
@@ -240,12 +221,7 @@ class _AdminLoginViewState extends State<AdminLoginView> {
                   ),
                 ),
               ),
-
               const Spacer(),
-
-              // ===============================================================
-              // 3. نیلا / ڈارک فوٹر سیکشن (ایڈمن کے کام کی معلومات)
-              // ===============================================================
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0, left: 24.0, right: 24.0),
                 child: Container(
@@ -283,12 +259,9 @@ class _AdminLoginViewState extends State<AdminLoginView> {
     );
   }
 
-  // ===========================================================================
-  // 🎨 بیک گراؤنڈ گریڈینٹس کا فنکشن
-  // ===========================================================================
   BoxDecoration _getBackgroundDecoration() {
     switch (selectedBgOption) {
-      case 1: // Mint Green Soft
+      case 1:
         return const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFFE8F5E9), Color(0xFFC8E6C9), Color(0xFFF1F8E9)],
@@ -296,7 +269,7 @@ class _AdminLoginViewState extends State<AdminLoginView> {
             end: Alignment.bottomCenter,
           ),
         );
-      case 2: // Deep Emerald Luxury
+      case 2:
         return const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
@@ -304,7 +277,7 @@ class _AdminLoginViewState extends State<AdminLoginView> {
             end: Alignment.bottomCenter,
           ),
         );
-      case 3: // Royal Navy Slate
+      case 3:
         return const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFF1E3A8A), Color(0xFF3B82F6), Color(0xFFEFF6FF)],
@@ -312,7 +285,7 @@ class _AdminLoginViewState extends State<AdminLoginView> {
             end: Alignment.bottomCenter,
           ),
         );
-      case 4: // Warm Gold & Dark
+      case 4:
         return const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFF18181B), Color(0xFF27272A), Color(0xFF3F3F46)],
@@ -320,7 +293,7 @@ class _AdminLoginViewState extends State<AdminLoginView> {
             end: Alignment.bottomCenter,
           ),
         );
-      case 5: // Clean Soft Grey
+      case 5:
         return const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFFE2E8F0), Color(0xFFF1F5F9), Color(0xFFFFFFFF)],
